@@ -4,16 +4,18 @@ package main
 
 import (
 	"fmt"
-	"github.com/sethvargo/go-diceware/diceware"
 	"log"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/sethvargo/go-diceware/diceware"
 )
 
 const (
-	prgname = "pgen"
-	prgver  = "1.1.0"
+	prgname   = "pgen"
+	prgver    = "1.2.0"
+	delimiter = "_" // Use underscore for pwd word delimiter
 )
 
 func printUsage() {
@@ -32,7 +34,7 @@ func GeneratePassphrase(words int) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(strings.Join(list, "-"))
+	fmt.Println(strings.Join(list, delimiter))
 }
 
 func main() {
