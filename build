@@ -11,10 +11,23 @@ case "$OSTYPE" in
     * )            printf "==> Unknown \"$OSTYPE\" (Options are Linux, macOS, or Windows with GitBASH)\n" && exit 1 ;;
 esac
 
-go fmt
 go mod tidy
+go fmt
 go test ./...
+
+if ! command -v staticcheck &> /dev/null; then
+    echo "==> staticcheck not found. Installing..."
+    go install honnef.co/go/tools/cmd/staticcheck@latest
+fi
+staticcheck ./...
+
 go build -ldflags "-s -w" -o $BIN
+
+# For cross compiling
+# GOOS=linux GOARCH=amd64|arm64   go build -ldflags "-s -w" -o ${Prg}
+# GOOS=windows GOARCH=amd64|arm64 go build -ldflags "-s -w" -o ${Prg}.exe
+# GOOS=darwin GOARCH=arm64        go build -ldflags "-s -w" -o ${Prg}
+
 printf "\n"
 ls -l $GOPATH/bin/$Prg | grep $Prg
 
