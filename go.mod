@@ -1,5 +1,7 @@
 module github.com/git719/pgen
 
-go 1.21.4
+go 1.22
 
-require github.com/sethvargo/go-diceware v0.3.0
+toolchain go1.23.5
+
+require github.com/sethvargo/go-diceware v0.4.0

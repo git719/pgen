@@ -1,5 +1,3 @@
-// main.go
-
 package main
 
 import (
@@ -14,17 +12,17 @@ import (
 
 const (
 	prgname   = "pgen"
-	prgver    = "1.2.0"
+	prgver    = "1.2.1"
 	delimiter = "_" // Use underscore for pwd word delimiter
 )
 
 func printUsage() {
 	fmt.Printf(prgname + " Memorable password generator v" + prgver + "\n" +
-		"                   Without arguments it generates a 3-word memorable password phrase\n" +
-		"  NUMBER           Generates a NUMBER-word memorable password phrase\n" +
+		"                     Without arguments it generates a 3-word memorable password phrase\n" +
+		"  NUMBER             Generates a NUMBER-word memorable password phrase\n" +
 		"                     For example, if NUMBER is '6' it generates a 6-word phrase\n" +
-		"                     Mininum is 1, maximum is 99\n" +
-		"  -?, -h, --help   Print this usage page\n")
+		"                     Mininum is 1, maximum is 9\n" +
+		"  -?, -h, --help     Print this usage page\n")
 	os.Exit(0)
 }
 
