@@ -1,12 +1,13 @@
 module pgen
 
-go 1.24
+go 1.24.0
 
 toolchain go1.24.2
 
 require (
 	github.com/queone/utl v1.3.11
 	github.com/sethvargo/go-diceware v0.5.0
+	golang.org/x/text v0.30.0
 )
 
 require (
